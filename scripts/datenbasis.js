@@ -70,23 +70,6 @@ let mySideDishes = [
 
 let myShoppingCard = {
     'mainDishes':[],
-    'sideDishes':[],
-    'getCountMainDishes':function () {
-        return this.mainDishes.length;
-    },
-    'getCountSideDishes':function () {
-        return this.sideDishes.length;
-    },
-    'addDish':function(category, dish) {
-        //prüfen, ob das Gericht bereits vorhanden ist
+    'sideDishes':[]
+};
 
-        //Ja -> nur die Anzahl erhöhen
-    },
-    'removeDish':function(category, dish) {
-        //prüfen, ob das Gericht bereits vorhanden ist
-
-        //Ja -> nur die Anzahl verringern
-
-        //Wenn das Gericht < 1 ist aus Liste entfernen
-    }
-}
