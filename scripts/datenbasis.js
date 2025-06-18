@@ -69,7 +69,7 @@ let mySideDishes = [
 //Beilagen dürfen nur zu Hauptgerichten bestellt werden, max. 2 Beilagen pro Hauptgericht
 
 let myShoppingCard = {
-    'mainDishes':[],
-    'sideDishes':[]
+    'main':[],
+    'side':[]
 };
 
