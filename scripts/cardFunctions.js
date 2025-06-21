@@ -33,8 +33,6 @@ function insertDishToShoppingCard(category, dish) {
 }
 
 function getShoppingCard(delivery) {
-    //pickup | bring
-
     const subtotalMain = getSumCategory('main');
     const subtotalSide = getSumCategory('side');
     const subtotal = subtotalMain.subTotalCategoryDishes + subtotalSide.subTotalCategoryDishes;

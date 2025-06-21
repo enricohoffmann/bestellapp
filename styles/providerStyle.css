@@ -1,4 +1,5 @@
 .provider-section-top{
+    flex-grow: 1;
     max-width: var(--content-width);
     display: flex;
     flex-direction: column;

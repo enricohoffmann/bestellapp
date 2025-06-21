@@ -1,7 +1,7 @@
 function onInit() {
     //Header und Footer laden
     //einen Anbieter laden
-    createProviderSection();
+    //createProviderSection();
 }
 
 
