@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: column;
     height: 100dvh;
-    /* height: 300px; */
     overflow: scroll;
 }
 
@@ -54,11 +53,9 @@ header>img {
 
 .content-section{
     display: flex;
+    justify-content: space-between;
 }
 
-.shopping-card{
-    width: 200px;
-}
 
 .footer-section{
     margin-top: auto;

@@ -16,3 +16,7 @@ a{
     font-family: "Roboto";
     src: url(../fonts/Roboto-VariableFont_wdth\,wght.ttf);
 }
+
+.d-none{
+    display: none;
+}
