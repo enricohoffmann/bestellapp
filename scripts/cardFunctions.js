@@ -1,7 +1,27 @@
+
 function addDishToCard(category, id){
     checkContainsDish(category, getDish(category, id));
+    setDisplayShoppingCard(true);
+    renderShoppingCard();
+}
 
-    getShoppingCard('bring');
+function removeDishFromCard(category, id) {
+    let cardResult = myShoppingCard[category].filter((d)=>d.id==id);
+    let newAmount = cardResult[0].amount -=1;
+    if(newAmount == 0){
+        deleteDishFromCard(category, id);
+    }else{
+        cardResult[0].amount = newAmount;
+        cardResult[0].price = newAmount * getDish(category, id).price;
+        renderShoppingCard();
+    }
+
+}
+
+function deleteDishFromCard(category, id) {
+    let dishIndex = myShoppingCard[category].map(d => d.id).indexOf(id);
+    myShoppingCard[category].splice(dishIndex, 1);
+    renderShoppingCard();
 }
 
 function checkContainsDish(category, dish) {
@@ -32,37 +52,5 @@ function insertDishToShoppingCard(category, dish) {
     });
 }
 
-function getShoppingCard(delivery) {
-    const subtotalMain = getSumCategory('main');
-    const subtotalSide = getSumCategory('side');
-    const subtotal = subtotalMain.subTotalCategoryDishes + subtotalSide.subTotalCategoryDishes;
-    const deliveryPrice = delivery == "bring" ? 7.50 : 0.00;
-    const total = subtotal + deliveryPrice;
 
-    return actualCardResults = {
-        'amountMainDisches': subtotalMain.amountCategoryDishes,
-        'amountSideDishes': subtotalSide.amountCategoryDishes,
-        'subtotal':subtotal,
-        'delivery':deliveryPrice,
-        'total': total
-    }
-}
-
-function getSumCategory(category) {
-    let sumAmount = 0;
-    let sumPrice = 0;
-
-    const myArr = myShoppingCard[category];
-
-    for(let i = 0; i < myArr.length; i++){
-        sumAmount += myArr[i].amount;
-        sumPrice += myArr[i].price;
-    }
-
-    return{
-        'amountCategoryDishes':sumAmount,
-        'subTotalCategoryDishes':sumPrice
-    };
-
-}
 

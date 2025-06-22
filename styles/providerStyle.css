@@ -82,6 +82,10 @@
     border: 1px solid rgba(179, 174, 174, 0.548);
 }
 
+.dish-container:hover{
+    background-color: rgba(192, 110, 78, 0.267);
+}
+
 .dish{
     padding: 8px;
 }

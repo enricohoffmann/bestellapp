@@ -34,3 +34,69 @@
     right: -23px;
 }
 
+.shopping-card-entry{
+    padding: 8px;
+}
+
+.shopping-card-entry>p{
+    text-align: left;
+    font-weight: 400;
+}
+
+.shopping-card-entry>div{
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shopping-card-entry>div>button{
+    width: 20px;
+    height: 20px;
+    padding-inline: 0;
+    padding-block: 0;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.shopping-card-entry>div>button:hover{
+    border: 1px solid var(--designColor);
+}
+
+.shopping-card-entry>div>button>img{
+    width: 14px;
+    height: 14px;
+    object-fit: cover;
+    object-position: center center;
+    margin-top: 2px;
+}
+
+.shopping-card-entry>div>p{
+    font-size: 12px;
+}
+
+.delivery-switch{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 8px;
+}
+
+.sumary-table{
+    margin-left: 8px;
+    border-top: 1px solid rgba(146, 138, 138, 0.37);
+}
+
+.sum-table-col-1{
+    text-align: left;
+}
+
+.sum-table-col-2{
+    padding-left: 40px;
+    text-align: right;
+}
+
+.sum-table-sumRow{
+    font-weight: 600;
+}

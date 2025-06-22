@@ -1,14 +1,14 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     scroll-behavior: smooth;
 }
 
-body{
+body {
     font-family: 'Roboto', sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -17,6 +17,60 @@ a{
     src: url(../fonts/Roboto-VariableFont_wdth\,wght.ttf);
 }
 
-.d-none{
+.d-none {
     display: none;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 32px;
+    height: 20px;
+}
+
+.switch>input:checked+.slider {
+    background-color: var(--designColor);
+}
+
+.switch>input:focus+.slider {
+    box-shadow: 0 0 1px var(--designColor);
+}
+
+.switch>input:checked+.slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+
+
+.slider.round {
+    border-radius: 16px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0px;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
