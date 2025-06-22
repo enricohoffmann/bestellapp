@@ -21,6 +21,11 @@ function removeDishFromCard(category, id) {
 function deleteDishFromCard(category, id) {
     let dishIndex = myShoppingCard[category].map(d => d.id).indexOf(id);
     myShoppingCard[category].splice(dishIndex, 1);
+
+    if(myShoppingCard['main'].length == 0 && myShoppingCard['side'].length == 0){
+        setDisplayShoppingCard(false);
+    }
+
     renderShoppingCard();
 }
 

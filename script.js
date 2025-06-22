@@ -67,6 +67,10 @@ function setDisplayShoppingCard(visible) {
         document.getElementById('shopping-card').classList.toggle('d-none');
         isShoppingCardVisible = visible;
     }
+
+    if(!isShoppingCardVisible){
+        deliveryOption = "pickup";
+    }
 }
 
 function renderShoppingCard() {

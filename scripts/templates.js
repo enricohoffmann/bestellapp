@@ -78,19 +78,19 @@ function getDeliveryOptionSwitch(isChecked) {
 
 function getSumaryTable(sumary) {
     return `
-    <table class="sumary-table">
-        <tr>
-            <td class="sum-table-col-1">Zwischensumme:</td>
-            <td class="sum-table-col-2">${sumary['subtotal'].toFixed(2)}€</td>
-        </tr>
-        <tr>
-            <td class="sum-table-col-1">Lieferkosten:</td>
-            <td class="sum-table-col-2">${sumary['delivery']}€</td>
-        </tr>
-        <tr>
-            <td class="sum-table-col-1 sum-table-sumRow">Gesamt:</td>
-            <td class="sum-table-col-2 sum-table-sumRow">${sumary['total'].toFixed(2)}€</td>
-        </tr>
-    </table>
+    <div class="sumary-table">
+        <div>
+            <p>Zwischensumme:</p>
+            <p>${sumary['subtotal'].toFixed(2)}€</p>
+        </div>
+        <div>
+            <p>Lieferkosten:</td>
+            <p>${sumary['delivery'].toFixed(2)}€</p>
+        </div>
+        <div>
+            <p class="sum-table-sumRow">Gesamt:</p>
+            <p class="sum-table-sumRow">${sumary['total'].toFixed(2)}€</p>
+        </div>
+    </div>
     `;
 }
