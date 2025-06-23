@@ -98,3 +98,21 @@
 .sum-table-sumRow{
     font-weight: 600;
 }
+
+.categpry-seperator{
+    border-color: rgba(146, 138, 138, 0.205);
+}
+
+.order-button{
+    margin-top: 16px;
+    width: 95%;
+    padding: 8px 4px ;
+    border: none;
+    background-color: var(--designColor);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.order-button:hover{
+    background-color: rgba(192, 110, 78, 0.267);
+}

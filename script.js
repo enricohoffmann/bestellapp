@@ -2,17 +2,27 @@ let isShoppingCardVisible = false;
 let deliveryOption = "pickup";
 
 function onInit() {
-    //Header und Footer laden
-    //einen Anbieter laden
+    let element = document.getElementById('indexSite');
+    element.innerHTML += getHeader();
+    element.innerHTML += getContent();
+    element.innerHTML += getFooter();
     createProviderSection();
 }
 
 
 function createProviderSection() {
     let providerSection = document.getElementById('provider-select');
-    providerSection.innerHTML += getProviderMainSection();
-    insertCategoryHeadline("main");
-    insertDishIntoContainer("main", myMainDishes);
+    providerSection.innerHTML += getProviderSection();
+    createCategorySection('main', myMainDishes, "./assets/img/french-fries.jpg", "Hauptgericht Bild");
+    createCategorySection('side', mySideDishes, "./assets/img/fritten.jpg", "Beilagen Bild");
+
+}
+
+function createCategorySection(category, dishArr, imgSource, imgAlt) {
+    let providerContainer = document.getElementsByClassName('provider-container')[0];
+    providerContainer.innerHTML += getProviderCategorySection(category, imgSource, imgAlt);
+    insertCategoryHeadline(category);
+    insertDishIntoContainer(category, dishArr); 
 }
 
 function insertCategoryHeadline(category) {
@@ -77,17 +87,23 @@ function renderShoppingCard() {
     let card = document.getElementById('shopping-card');
     card.innerHTML = "";
 
-    for(let indexMain = 0; indexMain < myShoppingCard['main'].length; indexMain++){
-        card.innerHTML += getShoppingcardEntry('main', myShoppingCard['main'][indexMain]);
+    renderCategory(card, 'main');
+
+    if(myShoppingCard['side'].length > 0 && myShoppingCard['main'].length > 0){
+        card.innerHTML += getShoppingCardSeperator();
     }
 
+    renderCategory(card, 'side');
+
     card.innerHTML += getDeliveryOptionSwitch(deliveryOption == "bring" ? 'checked' : '');
+    card.innerHTML += getSumaryTable(getShoppingCardSumary());
+    card.innerHTML += getOrderButton();
+}
 
-    let sum = getShoppingCardSumary();
-    console.log(sum);
-    
-
-    card.innerHTML += getSumaryTable(sum);
+function renderCategory(card, category) {
+    for(let indexCategory = 0; indexCategory < myShoppingCard[category].length; indexCategory++){
+        card.innerHTML += getShoppingcardEntry(category, myShoppingCard[category][indexCategory]);
+    }
 }
 
 function deliveryOnSelect() {
