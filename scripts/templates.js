@@ -115,16 +115,20 @@ function getSumaryTable(sumary) {
     `;
 }
 
-function getHeader() {
+function getHeader(isStartPage) {
     return `
         <section class="header-section">
             <header>
-                <img src="./assets/logo/Bestell App- Logo.svg" alt="Logo der Bestellapp">
-                <button class="menue-button" type="button" title="menue-button">
-                    <img src="./assets/icons/burger-menu-01.svg" alt="">
+                <img src="${isStartPage ?  './assets/logo/Bestell App- Logo.svg' : '../assets/logo/Bestell App- Logo.svg'}" alt="Logo der Bestellapp">
+                <button class="menue-button" type="button" title="menue-button" onclick="toggleRespMenu()">
+                    <img src="${isStartPage ? './assets/icons/burger-menu-01.svg' : '../assets/icons/burger-menu-01.svg'}" alt="">
                 </button>
-
             </header>
+            <div class="resp_menu_box resp_menu_close" id="resp_menu">
+                <a href="${isStartPage ? './index.html' : '../index.html'}" title="Home" class="nav-links">Home</a>
+                <a href="${isStartPage ? './impressum' : '../impressum'}" title="Impressumseite" class="nav-links">Impressum</a>
+                <a href="${isStartPage ? './datenschutz' : '../datenschutz'}" title="Datenschutzseite" class="nav-links">Datenschutz</a>
+            </div>
         </section>
     `;
 }

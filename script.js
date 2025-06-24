@@ -3,7 +3,7 @@ let deliveryOption = "pickup";
 
 function onInit() {
     let element = document.getElementById('indexSite');
-    element.innerHTML += getHeader();
+    element.innerHTML += getHeader(true);
     element.innerHTML += getContent();
     element.innerHTML += getFooter();
     createProviderSection();
@@ -110,4 +110,9 @@ function deliveryOnSelect() {
     let element = document.getElementById('delivery-selection');
     deliveryOption = element.checked ? "bring" : "pickup";
     renderShoppingCard();
+}
+
+function toggleRespMenu() {
+    document.getElementById('resp_menu').classList.toggle("resp_menu_close");
+
 }
