@@ -37,7 +37,7 @@ header {
 
 }
 
-header>img {
+header>a>img {
     margin-left: 24px;
     height: 36px;
 }

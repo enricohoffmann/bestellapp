@@ -116,3 +116,7 @@ function toggleRespMenu() {
     document.getElementById('resp_menu').classList.toggle("resp_menu_close");
 
 }
+
+function backToHome(isStartPage) {
+    window.open(`${isStartPage ? './index.html' : '../index.html'}`, _self);
+}

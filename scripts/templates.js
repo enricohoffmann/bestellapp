@@ -119,7 +119,9 @@ function getHeader(isStartPage) {
     return `
         <section class="header-section">
             <header>
-                <img src="${isStartPage ?  './assets/logo/Bestell App- Logo.svg' : '../assets/logo/Bestell App- Logo.svg'}" alt="Logo der Bestellapp">
+                <a href="${isStartPage ? './index.html' : '../index.html'}" title="Home">
+                    <img src="${isStartPage ?  './assets/logo/Bestell App- Logo.svg' : '../assets/logo/Bestell App- Logo.svg'}" alt="Logo der Bestellapp">
+                </a>
                 <button class="menue-button" type="button" title="menue-button" onclick="toggleRespMenu()">
                     <img src="${isStartPage ? './assets/icons/burger-menu-01.svg' : '../assets/icons/burger-menu-01.svg'}" alt="">
                 </button>
@@ -152,13 +154,13 @@ function getContent() {
     `;
 }
 
-function getFooter() {
+function getFooter(isStartPage) {
     return `
         <section class="footer-section">
             <footer>
                 <p>Enrico Hoffmann</p>
                 <p>
-                    <a href="./impressum/">Impressum</a> | <a href="./datenschutz/">Datenschutz</a>
+                    <a href="${isStartPage ? './impressum/' : '../impressum/'}">Impressum</a> | <a href="${isStartPage ? './datenschutz/' : '../datenschutz/'}">Datenschutz</a>
                 </p>
             </footer>
         </section>
