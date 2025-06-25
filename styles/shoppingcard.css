@@ -1,7 +1,8 @@
 .shopping-card-div {
     position: sticky;
     top: 0;
-    width: 250px;
+    min-width: 260px;
+    max-width: 260px;
     background-color: white;
     align-self: flex-start;
 }
@@ -15,14 +16,19 @@
 
 .shopping-card-div>div {
     text-align: center;
-    margin: 16px 24px;
+    /* margin: 16px 24px; */
 
 }
 
 .shopping-card-div>div>p {
+    flex-wrap: wrap;
+    text-align: center;
     margin-top: 8px;
+    margin-left: 24px;
+    margin-right: 24px;
     color: grey;
     font-size: 14px;
+
 }
 
 .shopping-card{
@@ -30,8 +36,8 @@
     height: 250px;
     background-color: white;
     position: absolute;
-    top: 32px;
-    right: -23px;
+    top: 40px;
+    right: 8px;
 }
 
 .shopping-card-entry{
@@ -115,4 +121,12 @@
 
 .order-button:hover{
     background-color: rgba(192, 110, 78, 0.267);
+}
+
+
+@media(max-width:770px){
+    .shopping-card-div{
+        display: none;
+    }
+
 }

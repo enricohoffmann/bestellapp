@@ -1,8 +1,9 @@
 function getProviderSection() {
     return `
-    <img class="provider-top-img" src="./assets/img/burger-platte.jpg" alt="">
-    <img class="provider-logo" src="./assets/img/burger-logo.jpg" alt="">
-
+    <div class="provider-img-logo-container">
+        <img class="provider-top-img" src="./assets/img/burger-platte.jpg" alt="">
+        <img class="provider-logo" src="./assets/img/burger-logo.jpg" alt="">
+    </div>
     <div class="provider-container">
 
         <div class="provider-name">
@@ -16,6 +17,7 @@ function getProviderSection() {
         </nav>
 
     </div>
+    
     `;
 }
 

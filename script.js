@@ -117,6 +117,3 @@ function toggleRespMenu() {
 
 }
 
-function backToHome(isStartPage) {
-    window.open(`${isStartPage ? './index.html' : '../index.html'}`, _self);
-}
