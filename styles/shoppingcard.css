@@ -31,7 +31,7 @@
 
 }
 
-.shopping-card{
+.shopping-card {
     width: 248px;
     height: 250px;
     background-color: white;
@@ -40,23 +40,23 @@
     right: 8px;
 }
 
-.shopping-card-entry{
+.shopping-card-entry {
     padding: 8px;
 }
 
-.shopping-card-entry>p{
+.shopping-card-entry>p {
     text-align: left;
     font-weight: 400;
 }
 
-.shopping-card-entry>div{
+.shopping-card-entry>div {
     margin-top: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.shopping-card-entry>div>button{
+.shopping-card-entry>div>button {
     width: 20px;
     height: 20px;
     padding-inline: 0;
@@ -66,11 +66,11 @@
     cursor: pointer;
 }
 
-.shopping-card-entry>div>button:hover{
+.shopping-card-entry>div>button:hover {
     border: 1px solid var(--designColor);
 }
 
-.shopping-card-entry>div>button>img{
+.shopping-card-entry>div>button>img {
     width: 14px;
     height: 14px;
     object-fit: cover;
@@ -78,55 +78,69 @@
     margin-top: 2px;
 }
 
-.shopping-card-entry>div>p{
+.shopping-card-entry>div>p {
     font-size: 12px;
 }
 
-.delivery-switch{
+.delivery-switch {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 16px 8px;
 }
 
-.sumary-table{
+.sumary-table {
     margin-left: 8px;
     border-top: 1px solid rgba(146, 138, 138, 0.37);
 }
 
-.sumary-table div{
+.sumary-table div {
     display: flex;
     justify-content: space-between;
     margin-top: 8px;
     margin-right: 8px;
 }
 
-.sum-table-sumRow{
+.sum-table-sumRow {
     font-weight: 600;
 }
 
-.categpry-seperator{
+.categpry-seperator {
     border-color: rgba(146, 138, 138, 0.205);
 }
 
-.order-button{
+.order-button {
     margin-top: 16px;
     width: 95%;
-    padding: 8px 4px ;
+    padding: 8px 4px;
     border: none;
     background-color: var(--designColor);
     font-size: 16px;
     cursor: pointer;
 }
 
-.order-button:hover{
+.order-button:hover {
     background-color: rgba(192, 110, 78, 0.267);
 }
 
+.shoppingcard-button-container {
+    display: none;
+    margin-bottom: 16px;
+    position: sticky;
+    align-self: flex-start;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
 
-@media(max-width:770px){
-    .shopping-card-div{
-        display: none;
-    }
 
+.shoppingcard-button {
+    padding: 16px 8px;
+    border: none;
+    background-color: var(--designColor);
+    font-size: 16px;
+    margin-bottom: 16px;
+    flex-grow: 1;
+    cursor: pointer;
 }

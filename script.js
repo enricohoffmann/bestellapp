@@ -7,6 +7,7 @@ function onInit() {
     element.innerHTML += getContent();
     element.innerHTML += getFooter();
     createProviderSection();
+    
 }
 
 
@@ -115,5 +116,29 @@ function deliveryOnSelect() {
 function toggleRespMenu() {
     document.getElementById('resp_menu').classList.toggle("resp_menu_close");
 
+}
+
+function toggleShoppingCardView() {
+    let shoppingCardDiv = document.getElementsByClassName('shopping-card-div')[0];
+    shoppingCardDiv.classList.toggle('d-none');
+    let shoppingCard = document.getElementById('shopping-card');
+    if(isShoppingCardVisible || shoppingCardDiv.classList.contains('d-none')){
+        shoppingCard.classList.add('d-none');
+        isShoppingCardVisible = false;
+    }else{
+        shoppingCard.classList.remove('d-none');
+        isShoppingCardVisible = true;
+        toggleRespShoppingButton();
+    }
+    
+}
+
+function toggleRespShoppingButton() {
+    let cardButton = document.getElementById('resp-shoppingCard-button');
+    if(isShoppingCardVisible){
+        cardButton.classList.replace('shoppingcard-button-container','d-none')
+    }else{
+        cardButton.classList.replace('d-none', 'shoppingcard-button-container')
+    }
 }
 

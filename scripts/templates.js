@@ -17,7 +17,9 @@ function getProviderSection() {
         </nav>
 
     </div>
-    
+    <div id="resp-shoppingCard-button" class="shoppingcard-button-container">
+        <button class="shoppingcard-button" type="button" onclick="toggleShoppingCardView()">Warenkorb</button>
+    </div>
     `;
 }
 
@@ -82,9 +84,14 @@ function getShoppingCardSeperator() {
     `;
 }
 
-function getOrderButton() {
+
+function getShoppingCardButton(){
     return `
-    <button type="button" class="order-button">Bestellen</button>
+    
+    <div class="shoppingcard-button-container">
+        <button type="button">Warenkorb</button>
+    </div>
+
     `;
 }
 
@@ -142,7 +149,7 @@ function getContent() {
         <section class="content-section">
             <div id="provider-select" class="provider-section-top">
             </div>
-            <div class="shopping-card-div">
+            <div id="shopping-card-container" class="shopping-card-div">
                 <p>Warenkorb</p>
                 <div>
                     <img src="./assets/icons/shopping_bag_64dp.svg" alt="">
