@@ -1,5 +1,6 @@
 let isShoppingCardVisible = false;
 let deliveryOption = "pickup";
+let idFromElement = 'shopping-card';
 
 function onInit() {
     let element = document.getElementById('indexSite');
@@ -85,7 +86,7 @@ function setDisplayShoppingCard(visible) {
 }
 
 function renderShoppingCard() {
-    let card = document.getElementById('shopping-card');
+    let card = document.getElementById(idFromElement);
     card.innerHTML = "";
 
     renderCategory(card, 'main');
@@ -107,6 +108,7 @@ function renderCategory(card, category) {
     }
 }
 
+
 function deliveryOnSelect() {
     let element = document.getElementById('delivery-selection');
     deliveryOption = element.checked ? "bring" : "pickup";
@@ -115,7 +117,6 @@ function deliveryOnSelect() {
 
 function toggleRespMenu() {
     document.getElementById('resp_menu').classList.toggle("resp_menu_close");
-
 }
 
 
@@ -136,6 +137,8 @@ function toggleRespShoppingButton() {
 function renderRespShoppingcard() {
     let site = document.getElementById('indexSite');
     site.innerHTML += getRespShoppingcard();
+    idFromElement = 'resp-shopping-container';
+    renderShoppingCard();
 }
 
 function removeRespShoppingcard() {

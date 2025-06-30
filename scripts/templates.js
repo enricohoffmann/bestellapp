@@ -60,17 +60,21 @@ function getShoppingcardEntry(category, dish) {
     <div class="shopping-card-entry">
         <p>${dish['name']}</p>
         <div>
-            <button type="button" title="remove" onclick="removeDishFromCard('${category}', ${dish.id})">
-                <img src="./assets/icons/remove_32dp_FF8000.svg" alt="">
-            </button>
-            <p>${dish['amount']}x</p>
-            <button type="button" title="add" onclick="addDishToCard('${category}', ${dish.id})">
-                <img src="./assets/icons/add_32dp_FF8000.svg" alt="">
-            </button>
-            <p>${dish['price'].toFixed(2)}€</p>
-            <button type="button" title="delete" onclick="deleteDishFromCard('${category}', ${dish.id})">
-                <img src="./assets/icons/delete_32dp_FF8000.svg" alt="">
-            </button>
+            <div class="entry-section">
+                <button type="button" title="remove" onclick="removeDishFromCard('${category}', ${dish.id})">
+                    <img src="./assets/icons/remove_32dp_FF8000.svg" alt="">
+                </button>
+                <p class="entry-section-text-sm">${dish['amount']}x</p>
+                <button type="button" title="add" onclick="addDishToCard('${category}', ${dish.id})">
+                    <img src="./assets/icons/add_32dp_FF8000.svg" alt="">
+                </button>
+            </div>
+            <div class="entry-section">
+                <p class="entry-section-text-sm">${dish['price'].toFixed(2)}€</p>
+                <button type="button" title="delete" onclick="deleteDishFromCard('${category}', ${dish.id})">
+                    <img src="./assets/icons/delete_32dp_FF8000.svg" alt="">
+                </button>
+            </div>
         </div>
     </div>
     `;
@@ -178,8 +182,11 @@ function getFooter(isStartPage) {
 
 function getRespShoppingcard() {
     return `
-    <div id="resp-shopping-card" class="resp-shopping-card">
-        <button class="" type="button" onclick="toggleRespShoppingButton()">Warenkorb</button>
-    </div>
+        <div id="resp-shopping-card" class="resp-shopping-card">
+            <button class="" type="button" onclick="toggleRespShoppingButton()">Warenkorb</button>
+            <div id="resp-shopping-container" class="resp-shopping-container">
+            </div>
+        </div>
     `;
 }
+
