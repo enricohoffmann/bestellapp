@@ -118,27 +118,28 @@ function toggleRespMenu() {
 
 }
 
-function toggleShoppingCardView() {
-    let shoppingCardDiv = document.getElementsByClassName('shopping-card-div')[0];
-    shoppingCardDiv.classList.toggle('d-none');
-    let shoppingCard = document.getElementById('shopping-card');
-    if(isShoppingCardVisible || shoppingCardDiv.classList.contains('d-none')){
-        shoppingCard.classList.add('d-none');
-        isShoppingCardVisible = false;
-    }else{
-        shoppingCard.classList.remove('d-none');
-        isShoppingCardVisible = true;
-        toggleRespShoppingButton();
-    }
-    
-}
+
+//Der Warenkorbbutton wird ausgeblendet wenn er betätigt wird, 
+//Ein Overlay erstellen und laden und den Warenlorb darin rendern
 
 function toggleRespShoppingButton() {
     let cardButton = document.getElementById('resp-shoppingCard-button');
-    if(isShoppingCardVisible){
+    if(cardButton.classList.contains('shoppingcard-button-container')){
         cardButton.classList.replace('shoppingcard-button-container','d-none')
+        renderRespShoppingcard();
     }else{
         cardButton.classList.replace('d-none', 'shoppingcard-button-container')
+        removeRespShoppingcard();
     }
 }
 
+function renderRespShoppingcard() {
+    let site = document.getElementById('indexSite');
+    site.innerHTML += getRespShoppingcard();
+}
+
+function removeRespShoppingcard() {
+    //ShoppingCard entfernen
+    let respShoppingCard = document.getElementById('resp-shopping-card');
+    respShoppingCard.remove();
+}

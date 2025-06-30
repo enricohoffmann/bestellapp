@@ -18,7 +18,7 @@ function getProviderSection() {
 
     </div>
     <div id="resp-shoppingCard-button" class="shoppingcard-button-container">
-        <button class="shoppingcard-button" type="button" onclick="toggleShoppingCardView()">Warenkorb</button>
+        <button class="shoppingcard-button" type="button" onclick="toggleRespShoppingButton()">Warenkorb</button>
     </div>
     `;
 }
@@ -173,5 +173,13 @@ function getFooter(isStartPage) {
                 </p>
             </footer>
         </section>
+    `;
+}
+
+function getRespShoppingcard() {
+    return `
+    <div id="resp-shopping-card" class="resp-shopping-card">
+        <button class="" type="button" onclick="toggleRespShoppingButton()">Warenkorb</button>
+    </div>
     `;
 }

@@ -84,7 +84,7 @@ a {
 
 @media(max-width:770px){
     .shopping-card-div{
-        /* display: none; */
+        display: none;
     }
 
     .shoppingcard-button-container{
