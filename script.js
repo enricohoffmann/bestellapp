@@ -39,6 +39,23 @@ function insertDishIntoContainer(category, myDishes) {
     }
 }
 
+function renderShoppingCard() {
+
+    let card = document.getElementById(idFromElement);
+    card.innerHTML = "";
+
+    renderCategory(card, 'main');
+
+    if(myShoppingCard['side'].length > 0 && myShoppingCard['main'].length > 0){
+        card.innerHTML += getShoppingCardSeperator();
+    }
+
+    renderCategory(card, 'side');
+
+    card.innerHTML += getDeliveryOptionSwitch(deliveryOption == "bring" ? 'checked' : '');
+    card.innerHTML += getSumaryTable(getShoppingCardSumary());
+    //card.innerHTML += getOrderButton();
+}
 
 function getShoppingCardSumary() {
     const subtotalMain = getSumCategory('main');
@@ -85,26 +102,12 @@ function setDisplayShoppingCard(visible) {
     }
 }
 
-function renderShoppingCard() {
-    let card = document.getElementById(idFromElement);
-    card.innerHTML = "";
 
-    renderCategory(card, 'main');
-
-    if(myShoppingCard['side'].length > 0 && myShoppingCard['main'].length > 0){
-        card.innerHTML += getShoppingCardSeperator();
-    }
-
-    renderCategory(card, 'side');
-
-    card.innerHTML += getDeliveryOptionSwitch(deliveryOption == "bring" ? 'checked' : '');
-    card.innerHTML += getSumaryTable(getShoppingCardSumary());
-    card.innerHTML += getOrderButton();
-}
 
 function renderCategory(card, category) {
     for(let indexCategory = 0; indexCategory < myShoppingCard[category].length; indexCategory++){
-        card.innerHTML += getShoppingcardEntry(category, myShoppingCard[category][indexCategory]);
+        let textClass = idFromElement == 'shopping-card' ? 'entry-section-text-sm' : 'entry-section-text-lg';
+        card.innerHTML += getShoppingcardEntry(category, myShoppingCard[category][indexCategory], textClass);
     }
 }
 
@@ -120,29 +123,54 @@ function toggleRespMenu() {
 }
 
 
-//Der Warenkorbbutton wird ausgeblendet wenn er betätigt wird, 
-//Ein Overlay erstellen und laden und den Warenlorb darin rendern
-
 function toggleRespShoppingButton() {
     let cardButton = document.getElementById('resp-shoppingCard-button');
     if(cardButton.classList.contains('shoppingcard-button-container')){
         cardButton.classList.replace('shoppingcard-button-container','d-none')
-        renderRespShoppingcard();
+        renderRespShoppingcardContainer();
     }else{
         cardButton.classList.replace('d-none', 'shoppingcard-button-container')
         removeRespShoppingcard();
     }
 }
 
-function renderRespShoppingcard() {
+function renderRespShoppingcardContainer() {
+    removeRespShoppingcardContainer();
     let site = document.getElementById('indexSite');
     site.innerHTML += getRespShoppingcard();
     idFromElement = 'resp-shopping-container';
+    if(myShoppingCard['side'].length == 0 && myShoppingCard['main'].length == 0){
+        renderRespShoppingcardEmpty();
+    }else{
+        renderRespShoppingCard();
+    }
+}
+
+function removeRespShoppingcardContainer() {
+    let container = document.getElementById('resp-shopping-container');
+    if(container !== null){
+        container.remove();
+    }
+    let shoppingCard = document.getElementById('shopping-card');
+    if(shoppingCard !== null){
+        shoppingCard.innerHTML = "";
+    }
+}
+
+function renderRespShoppingcardEmpty() {
+    let container = document.getElementById('resp-shopping-card');
+    container.innerHTML += getRespShoppingcardEmpty();
+}
+
+function renderRespShoppingCard() {
+    let container = document.getElementById('resp-shopping-card');
+    container.innerHTML += getRespShoppingcardWithData();
     renderShoppingCard();
 }
 
 function removeRespShoppingcard() {
-    //ShoppingCard entfernen
     let respShoppingCard = document.getElementById('resp-shopping-card');
     respShoppingCard.remove();
+    idFromElement = 'shopping-card';
+    renderShoppingCard();
 }

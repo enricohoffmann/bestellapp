@@ -28,6 +28,10 @@ a {
     height: 20px;
 }
 
+.switch>input{
+    display: none;;
+}
+
 .switch>input:checked+.slider {
     background-color: var(--designColor);
 }
@@ -96,4 +100,38 @@ a {
         flex-direction: column;
     }
     
+}
+
+@media(max-width:400px){
+    footer>p{
+        font-size: 14px;
+    }
+
+    .datenschutz-container h1{
+        font-size: 24px
+    }
+
+    .datenschutz-container h2{
+        font-size: 20px
+    }
+
+    .datenschutz-container p, ul{
+        font-size: 14px
+    }
+
+    .impressum-container h1{
+        font-size: 24px
+    }
+
+    .impressum-container p{
+        font-size: 14px
+    }
+
+
+}
+
+@media(max-width:350px){
+    footer>p{
+        font-size: 12px;
+    }
 }
