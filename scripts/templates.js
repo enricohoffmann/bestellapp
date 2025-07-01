@@ -128,6 +128,10 @@ function getSumaryTable(sumary) {
     `;
 }
 
+function getOrderButton() {
+    return `<button type="button" onclick="showThankYou()">bestellen</button>`;
+}
+
 function getHeader(isStartPage) {
     return `
         <section class="header-section">
@@ -201,6 +205,36 @@ function getRespShoppingcardEmpty() {
         <img src="./assets/icons/shopping_bag_64dp.svg" alt="">
         <p>Bitte treffe deine Auswahl aus der Karte.</p>
     </div>
+    `;
+}
+
+function getThankYouContent(providerName) {
+    return `
+        <div id="thank-you-container">
+            <h1>Vielen Dank für Ihre Bestellung!</h1>
+            <div id="thank-you-information">
+                <p>Sie haben haben folgendes bei <strong>${providerName}</strong> bestellt:</p>
+            </div>
+        </div>
+    `;
+}
+
+function getThankYouCategory(categoryName, amount, price) {
+    return `
+        <p>${categoryName}: ${amount}x zu ${price}€</p> 
+    `;
+}
+
+function getThankYouSummary(sumPrice) {
+    return `
+    <p>Der Gesamtpreis beträgt <strong>${sumPrice}€.</strong></p>
+    `;
+}
+
+function getThankYouDeliveryOption(text) {
+    return `
+        <br>
+        <p>${text}</p>
     `;
 }
 

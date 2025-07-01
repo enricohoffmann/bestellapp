@@ -54,7 +54,7 @@ function renderShoppingCard() {
 
     card.innerHTML += getDeliveryOptionSwitch(deliveryOption == "bring" ? 'checked' : '');
     card.innerHTML += getSumaryTable(getShoppingCardSumary());
-    //card.innerHTML += getOrderButton();
+    card.innerHTML += getOrderButton();
 }
 
 function getShoppingCardSumary() {
@@ -67,6 +67,8 @@ function getShoppingCardSumary() {
     return actualCardResults = {
         'amountMainDisches': subtotalMain.amountCategoryDishes,
         'amountSideDishes': subtotalSide.amountCategoryDishes,
+        'subTotalMain': Number.parseFloat(subtotalMain.subTotalCategoryDishes.toFixed(2)),
+        'subTotalSide':Number.parseFloat(subtotalSide.subTotalCategoryDishes.toFixed(2)),
         'subtotal': subtotal,
         'delivery': deliveryPrice,
         'total': total
@@ -173,4 +175,8 @@ function removeRespShoppingcard() {
     respShoppingCard.remove();
     idFromElement = 'shopping-card';
     renderShoppingCard();
+}
+
+function showThankYou() {
+    window.open("./thankyou/index.html", "_self");
 }

@@ -1,0 +1,16 @@
+#thank-you-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 36px;
+    margin-left: 36px;
+    margin-right: 36px;
+}
+
+
+
+#thank-you-container>h1{
+    text-align: center;
+    margin-bottom: 24px;
+}
