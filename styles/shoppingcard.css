@@ -128,7 +128,7 @@
 
 .order-button {
     margin-top: 16px;
-    width: 95%;
+    width: 100%;
     padding: 8px 4px;
     border: none;
     background-color: var(--designColor);

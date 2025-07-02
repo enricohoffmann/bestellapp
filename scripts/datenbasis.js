@@ -71,3 +71,29 @@ let myShoppingCard = {
     'side':[]
 };
 
+
+function saveShoppingCardIntoLocalStorage(shoppingCard, deliveryOption) {
+    localStorage.setItem('myShoppingCard', JSON.stringify(shoppingCard));
+    localStorage.setItem('deliveryOption', deliveryOption);
+}
+
+function getShoppingCardFromLocalStorage() {
+
+    const data = JSON.parse(localStorage.getItem('myShoppingCard'));
+    const devOption = localStorage.getItem('deliveryOption');
+    if(data !== undefined || data == null){
+        return {
+            data: JSON.parse(localStorage.getItem('myShoppingCard')),
+            deliveryOption: devOption
+        }
+    }else{
+        return {data:null, deliveryOption:""};
+    }
+    
+}
+
+function removeFromLocalStorage() {
+    localStorage.removeItem('myShoppingCard');
+    localStorage.removeItem('deliveryOption');
+}
+

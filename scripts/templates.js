@@ -129,7 +129,7 @@ function getSumaryTable(sumary) {
 }
 
 function getOrderButton() {
-    return `<button type="button" onclick="showThankYou()">bestellen</button>`;
+    return `<button class="order-button" type="button" onclick="showThankYou()">bestellen</button>`;
 }
 
 function getHeader(isStartPage) {

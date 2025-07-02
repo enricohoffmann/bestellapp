@@ -8,24 +8,23 @@ function onInitThankYou() {
 
 
 function renderOrderInThankYou() {
-    let summary = getShoppingCardSumary();
+    const data = getShoppingCardFromLocalStorage();
+    myShoppingCard = data.data;
+    let summary = getShoppingCardSumary(data.deliveryOption);
     let information = document.getElementById('thank-you-information');
     renderCategoryOptions(information, summary);
     information.innerHTML += getThankYouSummary(summary['total']);
     renderDeliveryOptions(information, summary);
-    /* myShoppingCard = {
-        'main':[],
-        'side':[]
-    }; */
+    removeFromLocalStorage();
 }
 
 function renderCategoryOptions(container, summary) {
-    if(summary['amountMainDisches'] > 0){
-        container.innerHTML += getThankYouCategory("Hauptgerichte", summary['amountMainDisches'], summary['subTotalMain']);
+    if(summary['amountMainDishes'] > 0){
+        container.innerHTML += getThankYouCategory("Hauptgerichte", summary['amountMainDishes'], summary['subTotalMain']);
     }
 
     if(summary['amountSideDishes'] > 0){
-        container.innerHTML += getThankYouCategory("Beilagen", summary['amountSideDisches'], summary['subTotalSide']);
+        container.innerHTML += getThankYouCategory("Beilagen", summary['amountSideDishes'], summary['subTotalSide']);
     }
 }
 
