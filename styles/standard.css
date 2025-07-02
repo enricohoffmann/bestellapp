@@ -87,11 +87,11 @@ a {
 
 
 @media(max-width:770px){
-    .shopping-card-div{
+    .shopping-cart-div{
         display: none;
     }
 
-    .shoppingcard-button-container{
+    .shoppingcart-button-container{
         display: flex;
         
     }

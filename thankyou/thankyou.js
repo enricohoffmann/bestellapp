@@ -8,9 +8,9 @@ function onInitThankYou() {
 
 
 function renderOrderInThankYou() {
-    const data = getShoppingCardFromLocalStorage();
-    myShoppingCard = data.data;
-    let summary = getShoppingCardSumary(data.deliveryOption);
+    const data = getShoppingCartFromLocalStorage();
+    myShoppingCart = data.data;
+    let summary = getShoppingCartSumary(data.deliveryOption);
     let information = document.getElementById('thank-you-information');
     renderCategoryOptions(information, summary);
     information.innerHTML += getThankYouSummary(summary['total']);

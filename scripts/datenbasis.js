@@ -66,24 +66,24 @@ let mySideDishes = [
 ];
 
 
-let myShoppingCard = {
+let myShoppingCart = {
     'main':[],
     'side':[]
 };
 
 
-function saveShoppingCardIntoLocalStorage(shoppingCard, deliveryOption) {
-    localStorage.setItem('myShoppingCard', JSON.stringify(shoppingCard));
+function saveShoppingCartIntoLocalStorage(shoppingCart, deliveryOption) {
+    localStorage.setItem('myShoppingCart', JSON.stringify(shoppingCart));
     localStorage.setItem('deliveryOption', deliveryOption);
 }
 
-function getShoppingCardFromLocalStorage() {
+function getShoppingCartFromLocalStorage() {
 
-    const data = JSON.parse(localStorage.getItem('myShoppingCard'));
+    const data = JSON.parse(localStorage.getItem('myShoppingCart'));
     const devOption = localStorage.getItem('deliveryOption');
     if(data !== undefined || data == null){
         return {
-            data: JSON.parse(localStorage.getItem('myShoppingCard')),
+            data: JSON.parse(localStorage.getItem('myShoppingCart')),
             deliveryOption: devOption
         }
     }else{
@@ -93,7 +93,7 @@ function getShoppingCardFromLocalStorage() {
 }
 
 function removeFromLocalStorage() {
-    localStorage.removeItem('myShoppingCard');
+    localStorage.removeItem('myShoppingCart');
     localStorage.removeItem('deliveryOption');
 }
 

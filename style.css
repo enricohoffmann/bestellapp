@@ -12,6 +12,8 @@
     flex-direction: column;
     height: 100dvh;
     overflow-y: scroll;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .content-all::-webkit-scrollbar{
@@ -34,7 +36,8 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 56px;
-
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header>a>img {
@@ -93,6 +96,9 @@ header>a>img {
     display: flex;
     justify-content: space-between;
     max-width: var(--content-width);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 

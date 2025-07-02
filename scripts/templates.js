@@ -17,8 +17,8 @@ function getProviderSection() {
         </nav>
 
     </div>
-    <div id="resp-shoppingCard-button" class="shoppingcard-button-container">
-        <button class="shoppingcard-button" type="button" onclick="toggleRespShoppingButton()">Warenkorb</button>
+    <div id="resp-shoppingCart-button" class="shoppingcart-button-container">
+        <button class="shoppingcart-button" type="button" onclick="toggleRespShoppingButton()">Warenkorb</button>
     </div>
     `;
 }
@@ -49,29 +49,29 @@ function getDishBanner(category, dish) {
                 <p>${dish['price'].toFixed(2)} €</p>
             </div>
             <div>
-                <button class="addButton" type="button" onclick="addDishToCard('${category}', ${dish['id']})">+</button>
+                <button class="addButton" type="button" onclick="addDishToCart('${category}', ${dish['id']})">+</button>
             </div>
         </div>
     `;
 }
 
-function getShoppingcardEntry(category, dish, textClass) {
+function getShoppingcartEntry(category, dish, textClass) {
     return `
-    <div class="shopping-card-entry">
+    <div class="shopping-cart-entry">
         <p>${dish['name']}</p>
         <div>
             <div class="entry-section">
-                <button type="button" title="remove" onclick="removeDishFromCard('${category}', ${dish.id})">
+                <button type="button" title="remove" onclick="removeDishFromCart('${category}', ${dish.id})">
                     <img src="./assets/icons/remove_32dp_FF8000.svg" alt="">
                 </button>
                 <p class="${textClass}">${dish['amount']}x</p>
-                <button type="button" title="add" onclick="addDishToCard('${category}', ${dish.id})">
+                <button type="button" title="add" onclick="addDishToCart('${category}', ${dish.id})">
                     <img src="./assets/icons/add_32dp_FF8000.svg" alt="">
                 </button>
             </div>
             <div class="entry-section">
                 <p class="${textClass}">${dish['price'].toFixed(2)}€</p>
-                <button type="button" title="delete" onclick="deleteDishFromCard('${category}', ${dish.id})">
+                <button type="button" title="delete" onclick="deleteDishFromCart('${category}', ${dish.id})">
                     <img src="./assets/icons/delete_32dp_FF8000.svg" alt="">
                 </button>
             </div>
@@ -80,19 +80,19 @@ function getShoppingcardEntry(category, dish, textClass) {
     `;
 }
 
-function getShoppingCardSeperator() {
+function getShoppingCartSeperator() {
     return `
-    <div class="shopping-card-entry">
-        <hr class="categpry-seperator">
+    <div class="shopping-cart-entry">
+        <hr class="category-seperator">
     </div>
     `;
 }
 
 
-function getShoppingCardButton(){
+function getShoppingCartButton(){
     return `
     
-    <div class="shoppingcard-button-container">
+    <div class="shoppingcart-button-container">
         <button type="button">Warenkorb</button>
     </div>
 
@@ -157,14 +157,14 @@ function getContent() {
         <section class="content-section">
             <div id="provider-select" class="provider-section-top">
             </div>
-            <div id="shopping-card-container" class="shopping-card-div">
+            <div id="shopping-cart-container" class="shopping-cart-div">
                 <p>Warenkorb</p>
                 <div>
                     <img src="./assets/icons/shopping_bag_64dp.svg" alt="">
                     <p>Bitte treffe deine Auswahl aus der Karte.</p>
                 </div>
 
-                <div id="shopping-card" class="shopping-card d-none">
+                <div id="shopping-cart" class="shopping-cart d-none">
                 </div>
             </div>
         </section>
@@ -184,24 +184,24 @@ function getFooter(isStartPage) {
     `;
 }
 
-function getRespShoppingcard() {
+function getRespShoppingcart() {
     return `
-        <div id="resp-shopping-card" class="resp-shopping-card">
+        <div id="resp-shopping-cart" class="resp-shopping-cart">
             <button class="" type="button" onclick="toggleRespShoppingButton()">Warenkorb</button>
         </div>
     `;
 }
 
-function getRespShoppingcardWithData() {
+function getRespShoppingcartWithData() {
     return `
     <div id="resp-shopping-container" class="resp-shopping-container">
     </div>
     `;
 }
 
-function getRespShoppingcardEmpty() {
+function getRespShoppingcartEmpty() {
     return `
-    <div id="resp-empty-card" class="resp-empty-card">
+    <div id="resp-empty-cart" class="resp-empty-cart">
         <img src="./assets/icons/shopping_bag_64dp.svg" alt="">
         <p>Bitte treffe deine Auswahl aus der Karte.</p>
     </div>

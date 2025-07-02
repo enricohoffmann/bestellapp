@@ -1,6 +1,6 @@
-let isShoppingCardVisible = false;
+let isShoppingCartVisible = false;
 let deliveryOption = "pickup";
-let idFromElement = 'shopping-card';
+let idFromElement = 'shopping-cart';
 
 function onInit() {
     let element = document.getElementById('indexSite');
@@ -8,7 +8,7 @@ function onInit() {
     element.innerHTML += getContent();
     element.innerHTML += getFooter();
     createProviderSection();
-    loadSoppingCardData();
+    loadSoppingCartData();
 }
 
 
@@ -39,36 +39,36 @@ function insertDishIntoContainer(category, myDishes) {
     }
 }
 
-function loadSoppingCardData() {
-    const data = getShoppingCardFromLocalStorage();
+function loadSoppingCartData() {
+    const data = getShoppingCartFromLocalStorage();
     if (data.data != null) {
         myShoppingCard = data.data;
         deliveryOption = data.deliveryOption;
-        setDisplayShoppingCard(true);
-        renderShoppingCard();
+        setDisplayShoppingCart(true);
+        renderShoppingCart();
     }
 }
 
-function renderShoppingCard() {
+function renderShoppingCart() {
 
     let card = document.getElementById(idFromElement);
     card.innerHTML = "";
 
     renderCategory(card, 'main');
 
-    if (myShoppingCard['side'].length > 0 && myShoppingCard['main'].length > 0) {
-        card.innerHTML += getShoppingCardSeperator();
+    if (myShoppingCart['side'].length > 0 && myShoppingCart['main'].length > 0) {
+        card.innerHTML += getShoppingCartSeperator();
     }
 
     renderCategory(card, 'side');
 
     card.innerHTML += getDeliveryOptionSwitch(deliveryOption == "bring" ? 'checked' : '');
-    card.innerHTML += getSumaryTable(getShoppingCardSumary());
+    card.innerHTML += getSumaryTable(getShoppingCartSumary());
     card.innerHTML += getOrderButton();
-    saveShoppingCardIntoLocalStorage(myShoppingCard, deliveryOption);
+    saveShoppingCartIntoLocalStorage(myShoppingCart, deliveryOption);
 }
 
-function getShoppingCardSumary(devOption) {
+function getShoppingCartSumary(devOption) {
     let option = devOption == null ? deliveryOption : devOption;
     const subtotalMain = getSumCategory('main');
     const subtotalSide = getSumCategory('side');
@@ -91,7 +91,7 @@ function getSumCategory(category) {
     let sumAmount = 0;
     let sumPrice = 0;
 
-    const myArr = myShoppingCard[category];
+    const myArr = myShoppingCart[category];
 
     for (let i = 0; i < myArr.length; i++) {
         sumAmount += myArr[i].amount;
@@ -105,23 +105,23 @@ function getSumCategory(category) {
 
 }
 
-function setDisplayShoppingCard(visible) {
-    if (visible != isShoppingCardVisible) {
-        document.getElementById('shopping-card').classList.toggle('d-none');
-        isShoppingCardVisible = visible;
+function setDisplayShoppingCart(visible) {
+    if (visible != isShoppingCartVisible) {
+        document.getElementById('shopping-cart').classList.toggle('d-none');
+        isShoppingCartVisible = visible;
     }
 
-    if (!isShoppingCardVisible) {
-        deliveryOption = myShoppingCard['delivery'] == 0.00 ? "pickup" : "bring";
+    if (!isShoppingCartVisible) {
+        deliveryOption = myShoppingCart['delivery'] == 0.00 ? "pickup" : "bring";
     }
 }
 
 
 
-function renderCategory(card, category) {
-    for (let indexCategory = 0; indexCategory < myShoppingCard[category].length; indexCategory++) {
-        let textClass = idFromElement == 'shopping-card' ? 'entry-section-text-sm' : 'entry-section-text-lg';
-        card.innerHTML += getShoppingcardEntry(category, myShoppingCard[category][indexCategory], textClass);
+function renderCategory(cart, category) {
+    for (let indexCategory = 0; indexCategory < myShoppingCart[category].length; indexCategory++) {
+        let textClass = idFromElement == 'shopping-cart' ? 'entry-section-text-sm' : 'entry-section-text-lg';
+        cart.innerHTML += getShoppingcartEntry(category, myShoppingCart[category][indexCategory], textClass);
     }
 }
 
@@ -129,7 +129,7 @@ function renderCategory(card, category) {
 function deliveryOnSelect() {
     let element = document.getElementById('delivery-selection');
     deliveryOption = element.checked ? "bring" : "pickup";
-    renderShoppingCard();
+    renderShoppingCart();
 }
 
 function toggleRespMenu() {
@@ -138,60 +138,60 @@ function toggleRespMenu() {
 
 
 function toggleRespShoppingButton() {
-    let cardButton = document.getElementById('resp-shoppingCard-button');
-    if (cardButton.classList.contains('shoppingcard-button-container')) {
-        cardButton.classList.replace('shoppingcard-button-container', 'd-none')
-        renderRespShoppingcardContainer();
+    let cartButton = document.getElementById('resp-shoppingCart-button');
+    if (cartButton.classList.contains('shoppingcart-button-container')) {
+        cartButton.classList.replace('shoppingcart-button-container', 'd-none')
+        renderRespShoppingcartContainer();
     } else {
-        cardButton.classList.replace('d-none', 'shoppingcard-button-container')
-        removeRespShoppingcard();
+        cartButton.classList.replace('d-none', 'shoppingcart-button-container')
+        removeRespShoppingcart();
     }
 }
 
-function renderRespShoppingcardContainer() {
-    removeRespShoppingcardContainer();
+function renderRespShoppingcartContainer() {
+    removeRespShoppingcartContainer();
     let site = document.getElementById('indexSite');
-    site.innerHTML += getRespShoppingcard();
+    site.innerHTML += getRespShoppingcart();
     idFromElement = 'resp-shopping-container';
-    if (myShoppingCard['side'].length == 0 && myShoppingCard['main'].length == 0) {
-        renderRespShoppingcardEmpty();
+    if (myShoppingCart['side'].length == 0 && myShoppingCart['main'].length == 0) {
+        renderRespShoppingcartEmpty();
     } else {
-        renderRespShoppingCard();
+        renderRespShoppingCart();
     }
 }
 
-function removeRespShoppingcardContainer() {
+function removeRespShoppingcartContainer() {
     let container = document.getElementById('resp-shopping-container');
     if (container !== null) {
         container.remove();
     }
-    let shoppingCard = document.getElementById('shopping-card');
-    if (shoppingCard !== null) {
-        shoppingCard.innerHTML = "";
+    let shoppingCart = document.getElementById('shopping-cart');
+    if (shoppingCart !== null) {
+        shoppingCart.innerHTML = "";
     }
 }
 
-function renderRespShoppingcardEmpty() {
-    let container = document.getElementById('resp-shopping-card');
+function renderRespShoppingcartEmpty() {
+    let container = document.getElementById('resp-shopping-cart');
     if (container !== null) {
-        container.innerHTML += getRespShoppingcardEmpty();
+        container.innerHTML += getRespShoppingcartEmpty();
     }
 }
 
-function renderRespShoppingCard() {
-    let container = document.getElementById('resp-shopping-card');
+function renderRespShoppingCart() {
+    let container = document.getElementById('resp-shopping-cart');
     if (container !== null) {
-        container.innerHTML += getRespShoppingcardWithData();
-        renderShoppingCard();
+        container.innerHTML += getRespShoppingcartWithData();
+        renderShoppingCart();
     }
 
 }
 
-function removeRespShoppingcard() {
-    let respShoppingCard = document.getElementById('resp-shopping-card');
-    respShoppingCard.remove();
-    idFromElement = 'shopping-card';
-    renderShoppingCard();
+function removeRespShoppingcart() {
+    let respShoppingCart = document.getElementById('resp-shopping-cart');
+    respShoppingCart.remove();
+    idFromElement = 'shopping-cart';
+    renderShoppingCart();
 }
 
 function showThankYou() {
