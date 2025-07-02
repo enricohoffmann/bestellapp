@@ -2,6 +2,8 @@
     max-width: var(--content-width);
     display: flex;
     flex-direction: column;
-    margin: 24px;
+    padding: 24px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
