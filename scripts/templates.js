@@ -221,13 +221,13 @@ function getThankYouContent(providerName) {
 
 function getThankYouCategory(categoryName, amount, price) {
     return `
-        <p>${categoryName}: ${amount}x zu ${price}€</p> 
+        <p>${categoryName}: ${amount}x zu ${price.toFixed(2)}€</p> 
     `;
 }
 
 function getThankYouSummary(sumPrice) {
     return `
-    <p>Der Gesamtpreis beträgt <strong>${sumPrice}€.</strong></p>
+    <p>Der Gesamtpreis beträgt <strong>${sumPrice.toFixed(2)}€.</strong></p>
     `;
 }
 
