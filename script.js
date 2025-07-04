@@ -50,7 +50,6 @@ function loadSoppingCartData() {
 }
 
 function renderShoppingCart() {
-
     let cart = document.getElementById(idFromElement);
     cart.innerHTML = "";
     renderCategory(cart, 'main');
@@ -60,7 +59,6 @@ function renderShoppingCart() {
     }
 
     renderCategory(cart, 'side');
-
     cart.innerHTML += getDeliveryOptionSwitch(deliveryOption == "bring" ? 'checked' : '');
     cart.innerHTML += getSumaryTable(getShoppingCartSumary());
     insertOrderButton(cart);
