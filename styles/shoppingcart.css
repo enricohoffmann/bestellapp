@@ -210,6 +210,17 @@
 
 }
 
+
+.resp-shopping-cart::-webkit-scrollbar{
+    width: 8px;
+    background-color: white;
+}
+
+.resp-shopping-cart::-webkit-scrollbar-thumb{
+    background-color: var(--designColor);
+    border-radius: 4px;
+}
+
 .resp-shopping-cart>button{
     padding: 16px 8px;
     border: none;
