@@ -51,22 +51,27 @@ function loadSoppingCartData() {
 
 function renderShoppingCart() {
 
-    let card = document.getElementById(idFromElement);
-    card.innerHTML = "";
-
-    renderCategory(card, 'main');
+    let cart = document.getElementById(idFromElement);
+    cart.innerHTML = "";
+    renderCategory(cart, 'main');
 
     if (myShoppingCart['side'].length > 0 && myShoppingCart['main'].length > 0) {
-        card.innerHTML += getShoppingCartSeperator();
+        cart.innerHTML += getShoppingCartSeperator();
     }
 
-    renderCategory(card, 'side');
+    renderCategory(cart, 'side');
 
-    card.innerHTML += getDeliveryOptionSwitch(deliveryOption == "bring" ? 'checked' : '');
-    card.innerHTML += getSumaryTable(getShoppingCartSumary());
-    card.innerHTML += getOrderButton();
+    cart.innerHTML += getDeliveryOptionSwitch(deliveryOption == "bring" ? 'checked' : '');
+    cart.innerHTML += getSumaryTable(getShoppingCartSumary());
+    insertOrderButton(cart);
     saveShoppingCartIntoLocalStorage(myShoppingCart, deliveryOption);
 }
+
+function insertOrderButton(cart) {
+    let btnClass = idFromElement == 'shopping-cart' ? 'non-resp-order-btn' : '';
+    cart.innerHTML += getOrderButton(btnClass);
+}
+
 
 function getShoppingCartSumary(devOption) {
     let option = devOption == null ? deliveryOption : devOption;
@@ -197,3 +202,4 @@ function removeRespShoppingcart() {
 function showThankYou() {
     window.open("./thankyou/index.html", "_self");
 }
+

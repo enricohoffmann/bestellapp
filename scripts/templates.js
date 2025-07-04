@@ -128,8 +128,8 @@ function getSumaryTable(sumary) {
     `;
 }
 
-function getOrderButton() {
-    return `<button class="order-button" type="button" onclick="showThankYou()">bestellen</button>`;
+function getOrderButton(btnClass) {
+    return `<button id="order-button" class="order-button ${btnClass}" type="button" onclick="showThankYou()">bestellen</button>`;
 }
 
 function getHeader(isStartPage) {

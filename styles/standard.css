@@ -135,3 +135,31 @@ a {
         font-size: 12px;
     }
 }
+
+@media(max-height:870px){
+    .non-resp-order-btn{
+        bottom: 16px;
+    }
+}
+
+@media(max-height:700px){
+    .non-resp-order-btn{
+        bottom: 32px;
+    }
+}
+
+@media(max-height:700px){
+    .non-resp-order-btn{
+        bottom: 42px;
+    }
+}
+
+@media(max-height:700px){
+    .non-resp-order-btn{
+        bottom: 56px;
+    }
+
+    .sumary-table{
+        margin-bottom: 52px;
+    }
+}
